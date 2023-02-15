@@ -1,0 +1,15 @@
+<resources>
+    <string name="spoof">Spoof</string>
+    <string name="sense">Sense</string>
+    <string name="check_liveness">Check Liveness</string>
+    <string name="face">face v%s</string>
+    <string name="guidelines">Guidelines</string>
+    <string name="_1_ample_lighting_on_the_face">1. Ample lighting on the face</string>
+    <string name="_2_no_face_tilt">2. No face tilt</string>
+    <string name="_3_no_multiple_faces">3. No multiple faces</string>
+    <string name="data_error">Data Error</string>
+    <string name="no_internet">No Internet Connection</string>
+    <string name="server_error">Unable to communicate to the server, please try again later</string>
+    <string name="home">Home</string>
+    <string name="try_again">Try again</string>
+</resources>

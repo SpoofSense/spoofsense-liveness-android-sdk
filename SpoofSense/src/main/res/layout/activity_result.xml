@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.spoofsense.liveness.activities.ResultActivity">
+
+    <ImageView
+        android:layout_width="@dimen/dp35"
+        android:layout_height="@dimen/dp35"
+        android:src="@drawable/ic_close"
+        android:layout_margin="@dimen/dp16"
+        android:layout_gravity="end"/>
+
+    <LinearLayout
+        android:id="@+id/ivClose"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ivResult"
+            tools:src="@drawable/success"/>
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:textSize="@dimen/sp24"
+            android:layout_marginHorizontal="@dimen/dp50"
+            android:fontFamily="@font/semi_bold"
+            android:layout_marginTop="@dimen/dp28"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Liveness Confirmed"/>
+
+        <Button
+            android:id="@+id/btnHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dp50"
+            android:text="@string/check_liveness" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/flProgress"
+        android:layout_width="match_parent"
+        android:background="@color/background"
+        tools:visibility="gone"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/progressCircular"/>
+
+    </FrameLayout>
+
+</FrameLayout>
