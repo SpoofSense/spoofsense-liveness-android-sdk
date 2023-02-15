@@ -1,5 +1,28 @@
 # SpoofSense
 
+
+Tag: [![Release](https://jitpack.io/v/SpoofSense/spoofsense-liveness-android-sdk.svg)](https://jitpack.io/#SpoofSense/spoofsense-liveness-android-sdk)
+
+
+## Initialization
+
+Add it in your root build.gradle at the end of repositories:
+
+```
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+Add the dependency:
+```
+	dependencies {
+	         implementation 'com.github.SpoofSense:spoofsense-liveness-android-sdk:Tag'
+	}
+```
+
 ## What SpoofSense does?
 SpoofSense check the liveness of the scanned face and returns you with a simple resultCallBack.
 Guidelines to follow, while scanning your face: 
