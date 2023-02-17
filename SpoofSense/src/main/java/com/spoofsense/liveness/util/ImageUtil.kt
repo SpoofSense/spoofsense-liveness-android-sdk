@@ -15,9 +15,18 @@ internal object ImageUtil {
     }
 
     fun bitmapToBase64(bitmap: Bitmap): String {
+        val convertedBitmap = convertTo4By3(bitmap)
         val baos = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 75, baos)
+        convertedBitmap.compress(Bitmap.CompressFormat.JPEG, 75, baos)
         val imageBytes = baos.toByteArray()
         return Base64.encodeToString(imageBytes, Base64.DEFAULT)
+    }
+
+    private fun convertTo4By3(bitmap: Bitmap): Bitmap {
+        val originalHeight = bitmap.height
+
+        val targetWidth = originalHeight * 3 / 4
+
+        return Bitmap.createScaledBitmap(bitmap, targetWidth, originalHeight, true)
     }
 }

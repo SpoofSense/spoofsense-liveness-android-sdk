@@ -75,6 +75,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/dp50"
-        android:text="@string/check_liveness" />
+        android:fontFamily="@font/semi_bold"
+        android:text="@string/check_liveness"
+        tools:text="@string/check_liveness"
+        tools:textColor="@color/button_text" />
 
 </LinearLayout>

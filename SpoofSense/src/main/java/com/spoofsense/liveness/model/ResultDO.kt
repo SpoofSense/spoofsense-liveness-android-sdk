@@ -4,7 +4,7 @@ import com.spoofsense.liveness.util.GSONUtils
 
 internal data class ResultDO(
     var message: String,
-    var status: Boolean
+    var liveness: Boolean
 ) {
     fun toJson() = GSONUtils.toString(this)
 }

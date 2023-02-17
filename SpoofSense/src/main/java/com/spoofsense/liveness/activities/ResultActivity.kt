@@ -79,7 +79,7 @@ internal class ResultActivity : AppCompatActivity() {
             }
 
             btnHome.setOnClickListener {
-                if(resultDO.status){
+                if(resultDO.liveness){
                     SpoofSense.onResult?.let { result -> result(resultDO.toJson()) }
                 }else{
                     startActivityWithExitAnim(CameraActivity.newInstance(this@ResultActivity))

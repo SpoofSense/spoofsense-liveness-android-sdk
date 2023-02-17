@@ -34,7 +34,6 @@ internal class CameraActivity : AppCompatActivity() {
 
     private fun initViews(){
         binding.apply{
-            cameraCaptureButton.set("",SpoofSense.buttonTitleColor,SpoofSense.buttonBackgroundColor)
             cameraCaptureButton.setOnClickListener {
                 camera.takePhoto {
                     if(!openResult) {
@@ -75,8 +74,10 @@ internal class CameraActivity : AppCompatActivity() {
     override fun onBackPressed() {
         if(SpoofSense.showFaceGuidelinesScreen){
             startActivityWithExitAnim(GuidelinesActivity.newInstance(this))
-            finish()
+        }else if(SpoofSense.showSplashScreen){
+            startActivityWithExitAnim(SplashActivity.newInstance(this))
         }
+        finish()
     }
 
     companion object {

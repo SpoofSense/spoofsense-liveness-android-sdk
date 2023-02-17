@@ -12,4 +12,7 @@
     <string name="server_error">Unable to communicate to the server, please try again later</string>
     <string name="home">Home</string>
     <string name="try_again">Try again</string>
+    <string name="permission_granted">Permission Granted</string>
+    <string name="permission_denied">Permission Denied</string>
+    <string name="click_a_selfie">click a Selfie</string>
 </resources>

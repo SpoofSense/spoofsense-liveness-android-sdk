@@ -23,7 +23,7 @@ object SpoofSense {
     var appFirstNameColor = Color.parseColor("#0E68C0")
     var appLastNameColor = Color.parseColor("#222222")
     var appLastName = "Sense"
-    var versionNumberString = "face v1.0.8"
+    var versionNumberString = "face v1.1.2"
     var versionNumberColor = Color.parseColor("#222222")
 
 
