@@ -53,8 +53,7 @@ internal class ResultActivity : AppCompatActivity() {
 
     private fun initAntiSpoof() {
         DataHolder.imageData?.let { bitmap ->
-            val data = ImageUtil.bitmapToBase64(bitmap)
-            antiSpoofVM.antiSpoof(data) { response ->
+            antiSpoofVM.antiSpoof(bitmap) { response ->
                 binding.apply {
                     if (response?.modelOutput?.isReal() == true) {
                         resultDO = ResultDO(ResultEnum.REAL.resultMessage, true)
