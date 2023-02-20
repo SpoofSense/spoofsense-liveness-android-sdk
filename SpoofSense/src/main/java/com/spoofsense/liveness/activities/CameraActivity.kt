@@ -37,7 +37,7 @@ internal class CameraActivity : AppCompatActivity() {
             cameraCaptureButton.setOnClickListener {
                 camera.takePhoto {
                     if(!openResult) {
-                        startActivity(ResultActivity.newInstance(this@CameraActivity, ImageUtil.bitmapToBase64(it)))
+                        startActivity(ResultActivity.newInstance(this@CameraActivity, it))
                         finish()
                     }
                     openResult = true
