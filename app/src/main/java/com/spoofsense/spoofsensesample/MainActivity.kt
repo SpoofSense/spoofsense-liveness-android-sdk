@@ -1,10 +1,8 @@
 package com.spoofsense.spoofsensesample
 
-import android.graphics.Color
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.spoofsense.liveness.config.SpoofSense
 import com.spoofsense.spoofsensesample.databinding.ActivityMainBinding
 
