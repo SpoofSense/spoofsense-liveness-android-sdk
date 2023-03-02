@@ -120,7 +120,7 @@ SpoofSense.guidelinesButtonTextTitle = "Check Liveness"
 
 ```kotlin
 SpoofSense.launch(context) { resultJson->
-    //result json example -> {"message":"Liveness Confirmed",status:"true"}
+    //result json example -> {"message":"Liveness Confirmed","status":"true","imgData":"base64String"}
 }
 ```
 

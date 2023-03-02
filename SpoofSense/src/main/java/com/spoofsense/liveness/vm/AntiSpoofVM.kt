@@ -13,12 +13,12 @@ import kotlinx.coroutines.withContext
 
 internal class AntiSpoofVM : ViewModel() {
 
-    fun antiSpoof(bitmap: Bitmap, onResponse: (data: Response?) -> Unit) {
+    fun antiSpoof(bitmap: Bitmap, onResponse: (data: Response?,imgData:String) -> Unit) {
         viewModelScope.launch(Dispatchers.IO) {
-            val data = ImageUtil.bitmapToBase64(bitmap)
-            val response = DataProviderImp.antiSpoof(Request(data))
+            val imgBase64 = ImageUtil.bitmapToBase64(bitmap)
+            val response = DataProviderImp.antiSpoof(Request(imgBase64))
             withContext(Dispatchers.Main) {
-                onResponse(response.data)
+                onResponse(response.data,imgBase64)
             }
         }
     }

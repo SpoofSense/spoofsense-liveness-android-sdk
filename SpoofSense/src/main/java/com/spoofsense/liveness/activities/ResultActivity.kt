@@ -5,6 +5,8 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.BlendModeColorFilterCompat
@@ -13,11 +15,9 @@ import androidx.core.view.isVisible
 import com.spoofsense.liveness.R
 import com.spoofsense.liveness.config.DataHolder
 import com.spoofsense.liveness.config.SpoofSense
-import com.spoofsense.liveness.constants.IntentConstant
 import com.spoofsense.liveness.databinding.ActivityResultBinding
 import com.spoofsense.liveness.enum.ResultEnum
 import com.spoofsense.liveness.model.ResultDO
-import com.spoofsense.liveness.util.ImageUtil
 import com.spoofsense.liveness.util.set
 import com.spoofsense.liveness.util.startActivityWithExitAnim
 import com.spoofsense.liveness.vm.AntiSpoofVM
@@ -53,42 +53,41 @@ internal class ResultActivity : AppCompatActivity() {
 
     private fun initAntiSpoof() {
         DataHolder.imageData?.let { bitmap ->
-            antiSpoofVM.antiSpoof(bitmap) { response ->
-                binding.apply {
-                    if (response?.modelOutput?.isReal() == true) {
-                        resultDO = ResultDO(ResultEnum.REAL.resultMessage, true)
-                        tvResult.text = resultDO.message
-                        ivResult.setImageDrawable(
-                            ContextCompat.getDrawable(
-                                this@ResultActivity,
-                                R.drawable.success
-                            )
-                        )
-                        btnHome.setText(R.string.home)
-                    } else if (response?.modelOutput?.isSpoof() == true) {
-                        resultDO = ResultDO(ResultEnum.SPOOF.resultMessage, false)
-                        tvResult.text = resultDO.message
-                        ivResult.setImageDrawable(
-                            ContextCompat.getDrawable(
-                                this@ResultActivity,
-                                R.drawable.error
-                            )
-                        )
-                        btnHome.setText(R.string.try_again)
-                    } else {
-                        resultDO = ResultDO(response?.detail ?: "", false)
-                        tvResult.text = resultDO.message
-                        ivResult.setImageDrawable(
-                            ContextCompat.getDrawable(
-                                this@ResultActivity,
-                                R.drawable.error
-                            )
-                        )
-                        btnHome.setText(R.string.try_again)
-                    }
-                    flProgress.isVisible = false
+            antiSpoofVM.antiSpoof(bitmap) { response,imgBase64 ->
+                if (response?.modelOutput?.isReal() == true) {
+                    resultDO = ResultDO(ResultEnum.REAL.resultMessage, true,imgBase64)
+                    updateUiForResult(
+                        drawableId = R.drawable.success,
+                        homeBtnTextId = R.string.home
+                    )
+                } else if (response?.modelOutput?.isSpoof() == true) {
+                    resultDO = ResultDO(ResultEnum.SPOOF.resultMessage, false,imgBase64)
+                    updateUiForResult(
+                        drawableId = R.drawable.error,
+                        homeBtnTextId = R.string.try_again
+                    )
+                } else {
+                    resultDO = ResultDO(response?.detail ?: "", false,imgBase64)
+                    updateUiForResult(
+                        drawableId = R.drawable.error,
+                        homeBtnTextId = R.string.try_again
+                    )
                 }
+                binding.flProgress.isVisible = false
             }
+        }
+    }
+
+    private fun updateUiForResult(@DrawableRes drawableId: Int, @StringRes homeBtnTextId: Int) {
+        binding.apply {
+            tvResult.text = resultDO.message
+            ivResult.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this@ResultActivity,
+                    drawableId
+                )
+            )
+            btnHome.setText(homeBtnTextId)
         }
     }
 

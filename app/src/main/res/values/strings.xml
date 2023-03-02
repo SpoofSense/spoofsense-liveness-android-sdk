@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SpoofSenseSample</string>
+    <string name="open_face_detection">Open face detection</string>
+    <string name="message">message : %s</string>
+    <string name="liveness">liveness : %s</string>
+    <string name="imgData">imgData : %s</string>
 </resources>

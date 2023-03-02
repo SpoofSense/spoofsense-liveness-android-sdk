@@ -31,7 +31,7 @@ object SpoofSense {
         this.onResult = onResult
         when {
             apiKey.isEmpty() -> {
-                val resultDO = ResultDO(ResultEnum.API_KEY.resultMessage, false)
+                val resultDO = ResultDO(ResultEnum.API_KEY.resultMessage, false,"")
                 this.onResult?.let { result -> result(resultDO.toJson()) }
             }
             showSplashScreen -> {

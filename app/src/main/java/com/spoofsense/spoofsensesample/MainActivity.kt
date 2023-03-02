@@ -1,8 +1,10 @@
 package com.spoofsense.spoofsensesample
 
 import android.os.Bundle
-import android.widget.Toast
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.spoofsense.liveness.config.SpoofSense
 import com.spoofsense.spoofsensesample.databinding.ActivityMainBinding
 
@@ -16,7 +18,13 @@ class MainActivity : AppCompatActivity() {
 
         binding.tvOpenSpoofSense.setOnClickListener {
             SpoofSense.launch(this) {
-                Toast.makeText(this, it, Toast.LENGTH_LONG).show()
+                val type = object : TypeToken<ResultDO>() {}.type
+                Gson().fromJson<ResultDO>(it, type).apply {
+                    binding.tvImgData.text = getString(R.string.imgData,imgData)
+                    binding.tvLiveness.text = getString(R.string.liveness,liveness.toString())
+                    binding.tvMessage.text = getString(R.string.message,message)
+                }
+                Log.d("result",it)
             }
         }
     }
