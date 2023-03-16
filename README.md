@@ -38,6 +38,7 @@ This flow consist of mainly 3 screens:
 1 Splash screen
 2 Guideline screen
 3 Camera screen
+4 Result screen
 ```
 respectively shown in the below image.
 
@@ -67,6 +68,20 @@ You can set the splash screen visibility by simply turning flag true/false. Defa
 
 ```kotlin
 SpoofSense.showSplashScreen = true
+```
+
+### Set Guideline Screen Visibility
+You can set the guideline screen visibility by simply turning flag true/false. Default is True.
+
+```kotlin
+SpoofSense.showFaceGuidelinesScreen = true
+```
+
+### Set Result Screen Visibility
+You can set the result screen visibility by simply turning flag true/false. Default is True.
+
+```kotlin
+SpoofSense.showResultScreen = true
 ```
 
 ### Set button text title

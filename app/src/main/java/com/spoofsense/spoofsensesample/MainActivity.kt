@@ -14,8 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        SpoofSense.apiKey = "Ek5Bnc6Aqx1W9Ye2JXf2G6w6u2sjRjvOaNK79z39"//todo enter api key
-        SpoofSense.showResultScreen = false
+        SpoofSense.apiKey = ""//todo enter api key
 
         binding.tvOpenSpoofSense.setOnClickListener {
             SpoofSense.launch(this) {
