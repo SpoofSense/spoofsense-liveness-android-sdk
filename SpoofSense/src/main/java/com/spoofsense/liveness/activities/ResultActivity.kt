@@ -73,22 +73,31 @@ internal class ResultActivity : AppCompatActivity() {
                         homeBtnTextId = R.string.try_again
                     )
                 }
-                binding.flProgress.isVisible = false
+                if(checkShowResultScreen()) {
+                    binding.flProgress.isVisible = false
+                }
             }
         }
     }
 
+    private fun checkShowResultScreen():Boolean{
+        if(SpoofSense.showResultScreen){ return true }
+        SpoofSense.onResult?.let { result -> result(resultDO.toJson()) }
+        finish()
+        return false
+    }
+
     private fun updateUiForResult(@DrawableRes drawableId: Int, @StringRes homeBtnTextId: Int) {
-        binding.apply {
-            tvResult.text = resultDO.message
-            ivResult.setImageDrawable(
-                ContextCompat.getDrawable(
-                    this@ResultActivity,
-                    drawableId
+            binding.apply {
+                tvResult.text = resultDO.message
+                ivResult.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        this@ResultActivity,
+                        drawableId
+                    )
                 )
-            )
-            btnHome.setText(homeBtnTextId)
-        }
+                btnHome.setText(homeBtnTextId)
+            }
     }
 
     private fun setListeners() {

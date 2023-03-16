@@ -19,6 +19,7 @@ object SpoofSense {
     var buttonBackgroundColor = Color.parseColor("#0E68C0")
     var showSplashScreen = true
     var showFaceGuidelinesScreen = true
+    var showResultScreen = true
     var appLogo: Drawable? = null
     var appFirstNameColor = Color.parseColor("#0E68C0")
     var appLastNameColor = Color.parseColor("#222222")
